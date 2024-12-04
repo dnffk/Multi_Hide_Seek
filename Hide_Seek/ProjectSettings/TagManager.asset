@@ -4,7 +4,7 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Hide
+  - Collision
   layers:
   - Default
   - TransparentFX

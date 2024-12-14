@@ -8,7 +8,7 @@ public class PlayerMove : MonoBehaviour
     public CharacterController characterController; // 캐릭터 컨트롤러
 
     public float moveSpeed = 10f;                   // 이동 속도
-    public float jumpSpeed = 10f;                   // 점프 속도
+    public float jumpSpeed = 5f;                   // 점프 속도
     public float gravity = -20f;                    // 중력
     public float sensitivity = 500f;               // 마우스 민감도
 
@@ -38,14 +38,20 @@ public class PlayerMove : MonoBehaviour
         moveDirection *= moveSpeed;
 
         // 점프 및 중력 처리
-        if (characterController.isGrounded)
+        //if (characterController.isGrounded)
+        //{
+        //    yVelocity = 0; // 바닥에 있을 때 Y축 속도 초기화
+        //    if (Input.GetKeyDown(KeyCode.Space))
+        //    {
+        //        yVelocity = jumpSpeed;
+        //    }
+        //}
+
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            yVelocity = 0; // 바닥에 있을 때 Y축 속도 초기화
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                yVelocity = jumpSpeed;
-            }
+            yVelocity = jumpSpeed;
         }
+
         yVelocity += gravity * Time.deltaTime; // 중력 적용
         moveDirection.y = yVelocity; // Y축 속도 적용
 
